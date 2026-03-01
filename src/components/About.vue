@@ -56,8 +56,15 @@
       </h2>
 
         <p>
-          My name is <span class="text-primary font-bold">Zakaria Fattawari</span>,
-          a third-year Computer Science student at <span class="text-primary font-bold">Kalimantan Institute of Technology</span>.
+          My name is Zakaria Fattawari, a third-year
+          <a href="https://if.itk.ac.id/" target="_blank" rel="noopener noreferrer" 
+             class="text-primary font-bold hover:text-white transition-colors underline decoration-primary/30 underline-offset-4"> 
+          Computer Science 
+          </a> student at 
+          <a href="https://itk.ac.id" target="_blank" rel="noopener noreferrer" 
+             class="text-primary font-bold hover:text-white transition-colors underline decoration-primary/30 underline-offset-4">
+            Kalimantan Institute of Technology
+          </a>.
           I have a strong interest in Web Development, Artificial Intelligence, and
           Machine Learning. I am currently deepening my knowledge in database systems 
           and full-stack development to strengthen my technical foundation and broaden my expertise.
@@ -94,7 +101,8 @@
         <div class="info-card">
           <h3 class="card-title">Education</h3>
           <p>
-            Computer Science – Kalimantan Institute of Technology<br>
+            Undergraduate Computer Science Student<br>
+            Kalimantan Institute of Technology<br>
             Faculty of Science & Information Technology
           </p>
         </div>

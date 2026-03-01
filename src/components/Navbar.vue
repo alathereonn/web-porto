@@ -35,7 +35,7 @@ const scrollTo = (id, duration = 500) => {
   if (!target) return
 
   const start = window.pageYOffset
-  const end = target.getBoundingClientRect().top + start - 80
+  const end = target.getBoundingClientRect().top + start - 150
   const distance = end - start
   let startTime = null
 
