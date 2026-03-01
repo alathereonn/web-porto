@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="min-h-[80vh] flex items-center pt-20 pb-6">
+  <section id="home" class="relative min-h-screen flex flex-col justify-center items-center pt-20 pb-20 overflow-hidden">
     <div class="w-full max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center md:items-start gap-16 lg:gap-24">
         
@@ -125,10 +125,17 @@ const createTypingEffect = (texts, outputRef, typingSpeed = 100, deletingSpeed =
 }
 
 const scrollToAbout = () => {
-  const section = document.getElementById('about')
-  if (section) {
-    section.scrollIntoView({ behavior: 'smooth' })
-  }
+  const target = document.getElementById('about')
+  if (!target) return
+
+  const start = window.pageYOffset
+  // Gunakan -100 agar sama dengan navbar yang sudah diperbaiki
+  const end = target.getBoundingClientRect().top + start - 100
+  
+  window.scrollTo({
+    top: end,
+    behavior: 'smooth'
+  })
 }
 
 onMounted(() => {

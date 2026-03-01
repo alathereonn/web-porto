@@ -1,5 +1,8 @@
 <template>
-  <section id="about" class="relative py-24 px-6 overflow-hidden">
+  <section id="about" class="relative min-h-screen flex flex-col justify-center items-center pt-16 pb-20 overflow-hidden">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-20">
+      About <span class="text-primary">Me!</span>
+    </h2>
 
     <!-- Nebula -->
     <div class="absolute inset-0 pointer-events-none z-0">
@@ -101,9 +104,9 @@
         <div class="info-card">
           <h3 class="card-title">Education</h3>
           <p>
-            Undergraduate Computer Science Student<br>
-            Kalimantan Institute of Technology<br>
-            Faculty of Science & Information Technology
+            > Undergraduate Computer Science Student<br>
+            > Kalimantan Institute of Technology<br>
+            > Faculty of Science & Information Technology
           </p>
         </div>
 
@@ -119,7 +122,6 @@
         </div>
 
         <div class="info-card">
-          <h3 class="card-title">Philosophy</h3>
           <p class="italic text-400">
             "Even if the world ends and disappears, it will be just two of us, alone in the memory."
           </p>
@@ -172,7 +174,7 @@ export default {
       autoSlideInterval: null,
 
       // ===== TYPING DATA =====
-      aboutTexts: ["ABOUT ME", "WHO AM I", "GET TO KNOW ME", "WHAT DO I DO?"],
+      aboutTexts: ["WHO AM I", "GET TO KNOW ME", "WHAT DO I DO?"],
       displayAbout: ""
     };
   },
@@ -297,9 +299,19 @@ export default {
     },
 
     scrollToQualification() {
-      const section = document.getElementById('qualification');
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+      const target = document.getElementById('qualification');
+      if (target) {
+        // 1. Ambil posisi scroll saat ini
+        const start = window.pageYOffset;
+        
+        // 2. Hitung posisi target dikurangi tinggi navbar (offset 100px)
+        const end = target.getBoundingClientRect().top + start - 100; 
+        
+        // 3. Jalankan scroll
+        window.scrollTo({
+          top: end,
+          behavior: 'smooth'
+        });
       }
     }
   }

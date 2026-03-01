@@ -1,10 +1,12 @@
 <template>
-
   <!-- ================= PROFESSIONAL CERTIFICATION ================= -->
   <section id="qualification" class="qualification-section scroll-mt-50">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mt-50 mb-20">
+      Featured <span class="text-primary">Qualifications</span>
+    </h2>
 
     <!-- TITLE -->
-    <div class="w-full flex justify-center mt-50 mb-4">
+    <div class="w-full flex justify-center mt-10 mb-4">
       <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight">
         <span class="text-primary">{{ typedCert }}</span><span class="animate-pulse text-primary drop-shadow-[0_0_8px_var(--color-primary)]">|</span>
       </h2>
@@ -459,7 +461,30 @@
       </div>
     </div>
   </section>
+  <div class="flex justify-center mt-24 relative z-10">
+        <button
+          @click="scrollToProject"
+          class="group relative px-10 py-4 rounded-xl
+                font-semibold tracking-wide
+                border border-primary
+                text-primary
+                bg-transparent
+                transition-all duration-300
+                transform
+                shadow-[0_6px_0_0_var(--color-primary)]
+                
+                hover:bg-primary
+                hover:text-black
+                hover:-translate-y-1
+                hover:shadow-[0_12px_25px_rgba(190,24,93,0.4)]
 
+                active:translate-y-2
+                active:shadow-[0_3px_0_0_var(--color-primary)]"
+        >
+          See My Projects!
+        </button>
+      </div>
+      
 </template>
 
 <script>
@@ -483,6 +508,8 @@ export default {
     this.createTyping(this.teachText, "typedTeach");
     this.createTyping(this.eduText, "typedEdu");
   },
+
+  
 
   methods: {
     createTyping(textArray, target) {
@@ -510,6 +537,18 @@ export default {
       };
 
       loop();
+    },
+    scrollToProject() {
+      const section = document.getElementById('project');
+      if (section) {
+        const start = window.pageYOffset;
+        const end = section.getBoundingClientRect().top + start - 100; 
+        
+        window.scrollTo({
+          top: end,
+          behavior: 'smooth'
+        });
+      }
     }
   }
 };
