@@ -1,19 +1,18 @@
 <template>
-  <section id="about" class="relative min-h-screen flex flex-col justify-center items-center pt-16 pb-20 overflow-hidden">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-20">
+  <section id="about" class="relative min-h-screen flex flex-col justify-center items-center pt-20 pb-20 overflow-hidden w-full">
+    
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-20">
       About <span class="text-primary">Me!</span>
     </h2>
 
-    <!-- Nebula -->
     <div class="absolute inset-0 pointer-events-none z-0">
       <div class="nebula-layer layer1"></div>
       <div class="nebula-layer layer2"></div>
       <div class="nebula-layer layer3"></div>
     </div>
 
-    <!-- ================= CAROUSEL ================= -->
     <div
-      class="max-w-5xl mx-auto relative overflow-hidden cursor-grab z-10"
+      class="w-full max-w-5xl mx-auto relative overflow-hidden cursor-grab z-10"
       @mousedown="onDragStart"
       @mousemove="onDragMove"
       @mouseup="onDragEnd"
@@ -30,26 +29,24 @@
         <div
           v-for="(img, i) in loopImages"
           :key="i"
-          class="flex-shrink-0"
-          :style="{ width: slideWidth + 'px', padding: '0 49px' }"
+          class="flex-shrink-0 px-4 md:px-12"
+          :style="{ width: slideWidth + 'px' }"
         >
-          <div class="relative w-full aspect-[4/3] py-5">
+          <div class="relative w-full aspect-[4/3] py-2 md:py-5">
             <img
               :src="img"
-              class="carousel-image"
+              class="carousel-image rounded-2xl shadow-lg object-cover w-full h-full"
             />
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= ABOUT CONTENT ================= -->
-    <div class="max-w-7xl mx-auto mt-24 grid md:grid-cols-2 gap-16 relative z-10">
+    <div class="w-full max-w-7xl mx-auto px-6 mt-12 md:mt-24 grid md:grid-cols-2 gap-10 md:gap-16 relative z-10">
 
-      <!-- LEFT -->
-      <div class="text-gray-300 leading-relaxed space-y-6 text-justify">
+      <div class="text-gray-300 leading-relaxed space-y-6 text-left md:text-justify">
 
-      <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      <h2 class="text-3xl md:text-5xl font-bold leading-tight">
         <span class="text-primary">
           {{ displayAbout }}
         </span>
@@ -99,20 +96,19 @@
         </p>
       </div>
 
-      <!-- RIGHT CARDS -->
-      <div class="space-y-8">
-        <div class="info-card">
-          <h3 class="card-title">Education</h3>
-          <p>
-            > Undergraduate Computer Science Student<br>
-            > Kalimantan Institute of Technology<br>
-            > Faculty of Science & Information Technology
+      <div class="space-y-6 md:space-y-8">
+        <div class="info-card bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
+          <h3 class="text-xl font-bold text-primary mb-3">Education</h3>
+          <p class="text-gray-300 text-sm md:text-base space-y-2">
+            <span class="block">> Undergraduate Computer Science Student</span>
+            <span class="block">> Kalimantan Institute of Technology</span>
+            <span class="block">> Faculty of Science & Information Technology</span>
           </p>
         </div>
 
-        <div class="info-card">
-          <h3 class="card-title">Interest / Skills</h3>
-          <ul class="list-disc list-inside space-y-1">
+        <div class="info-card bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
+          <h3 class="text-xl font-bold text-primary mb-3">Interest / Skills</h3>
+          <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm md:text-base">
             <li>Web Development</li>
             <li>Game Development</li>
             <li>Computer Networks</li>
@@ -121,15 +117,14 @@
           </ul>
         </div>
 
-        <div class="info-card">
-          <p class="italic text-400">
+        <div class="info-card bg-card p-6 rounded-2xl border border-white/5 shadow-xl">
+          <p class="italic text-gray-400 text-sm md:text-base">
             "Even if the world ends and disappears, it will be just two of us, alone in the memory."
           </p>
         </div>
       </div>
     </div>
 
-    <!-- MORE BUTTON -->
     <div class="flex justify-center mt-16 relative z-10">
       <button
         @click="scrollToQualification"
@@ -241,7 +236,9 @@ export default {
     // ===== CAROUSEL METHODS =====
     updateSlideWidth() {
       const container = this.$el.querySelector('.overflow-hidden');
-      this.slideWidth = container.offsetWidth;
+      if (container) {
+        this.slideWidth = container.offsetWidth;
+      }
     },
 
     getClientX(e) {
@@ -284,6 +281,7 @@ export default {
 
       setTimeout(() => {
         const slider = this.$refs.slider;
+        if (!slider) return;
         slider.style.transition = 'none';
 
         if (this.currentIndex === 0)
@@ -293,7 +291,7 @@ export default {
           this.currentIndex = 1;
 
         slider.style.transform = `translateX(${-this.currentIndex * this.slideWidth}px)`;
-        void slider.offsetWidth;
+        void slider.offsetWidth; // Trigger reflow
         slider.style.transition = 'transform 0.5s ease-in-out';
       }, 500);
     },
@@ -301,13 +299,9 @@ export default {
     scrollToQualification() {
       const target = document.getElementById('qualification');
       if (target) {
-        // 1. Ambil posisi scroll saat ini
         const start = window.pageYOffset;
-        
-        // 2. Hitung posisi target dikurangi tinggi navbar (offset 100px)
         const end = target.getBoundingClientRect().top + start - 100; 
         
-        // 3. Jalankan scroll
         window.scrollTo({
           top: end,
           behavior: 'smooth'
