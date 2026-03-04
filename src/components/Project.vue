@@ -1,8 +1,9 @@
 <template>
   <section id="project" class="min-h-screen py-20 md:py-32 px-4 md:px-8 scroll-mt-24">
-    <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-20">
+    <h2 class="text-3xl md:text-5xl font-bold text-center mb-4">
       Featured <span class="text-primary">Projects</span>
     </h2>
+    <div class="w-24 h-1 bg-primary mx-auto mb-12 md:mb-20 shadow-[0_0_10px_var(--color-primary)]"></div>
 
     <div 
       class="relative max-w-6xl mx-auto group"

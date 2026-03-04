@@ -1,18 +1,17 @@
 <template>
-  <!-- ================= PROFESSIONAL CERTIFICATION ================= -->
-  <section id="qualification" class="qualification-section scroll-mt-50">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mt-50 mb-20">
+  <section id="qualification" class="qualification-section scroll-mt-24 pt-20 md:pt-32">
+    
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-6">
       Featured <span class="text-primary">Qualifications</span>
     </h2>
+    <div class="w-24 h-1 bg-primary mx-auto mb-16 shadow-[0_0_10px_var(--color-primary)] rounded-full"></div>
 
-    <!-- TITLE -->
-    <div class="w-full flex justify-center mt-10 mb-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight">
+    <div class="w-full flex justify-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight">
         <span class="text-primary">{{ typedCert }}</span><span class="animate-pulse text-primary drop-shadow-[0_0_8px_var(--color-primary)]">|</span>
       </h2>
     </div>
 
-    <!-- TIMELINE -->
     <div class="timeline">
       <div class="timeline-item left">
         <div class="timeline-content">
@@ -52,17 +51,14 @@
     </div>
   </section>
 
-  <!-- ================= TEACHING EXPERIENCES ================= -->
   <section class="qualification-section">
 
-    <!-- TITLE -->
-    <div class="w-full flex justify-center mt-50 mb-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight">
+    <div class="w-full flex justify-center mt-32 mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight">
         <span class="text-primary">{{ typedTeach }}</span><span class="animate-pulse text-primary drop-shadow-[0_0_8px_var(--color-primary)]">|</span>
       </h2>
     </div>
 
-    <!-- TIMELINE -->
     <div class="timeline">
 
       <div class="timeline-item left">
@@ -171,17 +167,14 @@
     </div>
   </section>
 
-  <!-- ================= EDUCATION ================= -->
-  <section id="qualification" class="qualification-section">
+  <section class="qualification-section pb-24">
 
-    <!-- TITLE -->
-    <div class="w-full flex justify-center mt-50 mb-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-center leading-tight">
+    <div class="w-full flex justify-center mt-32 mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-center leading-tight">
         <span class="text-primary">{{ typedEdu }}</span><span class="animate-pulse text-primary drop-shadow-[0_0_8px_var(--color-primary)]">|</span>
       </h2>
     </div>
 
-    <!-- TIMELINE -->
     <div class="timeline">
       <div class="timeline-item left">
         <div class="timeline-content">
@@ -461,29 +454,30 @@
       </div>
     </div>
   </section>
-  <div class="flex justify-center mt-24 relative z-10">
-        <button
-          @click="scrollToProject"
-          class="group relative px-10 py-4 rounded-xl
-                font-semibold tracking-wide
-                border border-primary
-                text-primary
-                bg-transparent
-                transition-all duration-300
-                transform
-                shadow-[0_6px_0_0_var(--color-primary)]
-                
-                hover:bg-primary
-                hover:text-black
-                hover:-translate-y-1
-                hover:shadow-[0_12px_25px_rgba(190,24,93,0.4)]
 
-                active:translate-y-2
-                active:shadow-[0_3px_0_0_var(--color-primary)]"
-        >
-          See My Projects!
-        </button>
-      </div>
+  <div class="flex justify-center pb-32 relative z-10">
+    <button
+      @click="scrollToProject"
+      class="group relative px-10 py-4 rounded-xl
+            font-semibold tracking-wide
+            border border-primary
+            text-primary
+            bg-transparent
+            transition-all duration-300
+            transform
+            shadow-[0_6px_0_0_var(--color-primary)]
+            
+            hover:bg-primary
+            hover:text-black
+            hover:-translate-y-1
+            hover:shadow-[0_12px_25px_rgba(190,24,93,0.4)]
+
+            active:translate-y-2
+            active:shadow-[0_3px_0_0_var(--color-primary)]"
+    >
+      See My Projects!
+    </button>
+  </div>
       
 </template>
 
@@ -508,8 +502,6 @@ export default {
     this.createTyping(this.teachText, "typedTeach");
     this.createTyping(this.eduText, "typedEdu");
   },
-
-  
 
   methods: {
     createTyping(textArray, target) {

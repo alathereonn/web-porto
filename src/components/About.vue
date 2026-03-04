@@ -1,9 +1,10 @@
 <template>
   <section id="about" class="relative min-h-screen flex flex-col justify-center items-center pt-20 pb-20 overflow-hidden w-full">
     
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 md:mb-20">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-4">
       About <span class="text-primary">Me!</span>
     </h2>
+    <div class="w-24 h-1 bg-primary mx-auto mb-12 md:mb-20 shadow-[0_0_10px_var(--color-primary)]"></div>
 
     <div class="absolute inset-0 pointer-events-none z-0">
       <div class="nebula-layer layer1"></div>
